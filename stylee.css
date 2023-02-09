@@ -17,5 +17,9 @@ nav {
 }
 
 nav:hover {
-  border-bottom: #ccbdbc;
+  border-bottom: #ccbdbc 3px;
+}
+
+ul {
+  list-style-type: ✰;
 }
