@@ -1,0 +1,29 @@
+:root {
+  background: black;
+  color: floralwhite;
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 1em;
+       column-gap: 1em;
+  align-items: center;
+  list-style: none;
+  font-size: 16px;
+  height: 2em;
+}
+header nav ul li {
+  transition: 0.1s ease-in-out;
+}
+header nav ul li:hover {
+  transform: scale(1.2);
+  font-weight: bold;
+}
+header nav ul .fade {
+  opacity: 50%;
+}
+header nav ul a {
+  color: floralwhite;
+  text-decoration: none;
+}/*# sourceMappingURL=test.css.map */

@@ -1,1 +1,30 @@
+main {
+  background-color: black;
+  color: white;
+  font-family: helvetica;
+}
 
+footer, header {
+  background-color: #003249;
+}
+
+form {
+  background-color: #007ea7;
+}
+
+input {
+  border: none;
+  border-radius: 5px;
+}
+
+nav {
+  transition: .3s ease-in-out;
+}
+
+nav:hover {
+  border-bottom: 3px #ccbdbc;
+}
+
+ul {
+  list-style-type: "✰";
+}

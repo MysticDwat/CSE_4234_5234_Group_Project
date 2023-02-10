@@ -1,0 +1,39 @@
+$color1: black;
+$color2: floralwhite;
+$color3: #c33c54;
+$color4: #e76f51;
+$color5: #7698b3;
+
+:root {
+    background: $color1;
+    color: $color2;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    align-items: center;
+
+    list-style: none;
+    font-size: 16px;
+    height: 2em;
+
+    li {
+        transition: 0.1s ease-in-out;
+    }
+
+    li:hover {
+        transform: scale(1.2);
+        font-weight: bold;
+    }
+
+    .fade {
+        opacity: 50%;
+    }
+
+    a {
+        color: $color2;
+        text-decoration: none;
+    }
+}
