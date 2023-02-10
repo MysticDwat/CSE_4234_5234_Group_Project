@@ -4,9 +4,182 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your Task List</title>
+
+    <script src="task_button.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <h1>The Task List</h1>
+
+        <nav id="user_nav">
+            <ul>
+                <li>
+                    <a>Login</a>
+                </li>
+
+                <li>
+                    <a>Sign Up</a>
+                </li>
+
+                <li>
+                    <a>Settings</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav id="site_nav">
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="list.html">Task List</a>
+                </li>
+
+                <li>
+                    <a href="createNew.html">Create Task</a>
+                </li>
+
+                <li>
+                    <a>About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="urgent_tasks" class="task_category">
+            <h3>Urgent Tasks</h3>
+
+            <ul>
+                <li>
+                    <div class="task_name">Schedule Doctor's Appointment</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Refill Prescription</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Respond to Interview Email</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+            </ul>
+        </div>
+
+        <div id="important_tasks" class="task_category">
+            <h3>Important Tasks</h3>
+
+            <ul>
+                <li>
+                    <div class="task_name">Book Hotel for Vacation</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Call Parents</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Complete Project Milestone 1</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+            </ul>
+        </div>
+
+        <div id="monthly_tasks" class="task_category">
+            <h3>Monthly Tasks</h3>
+            
+            <ul>
+                <li>
+                    <div class="task_name">Pay Rent</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Pay Utilities</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Buy Pads</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+            </ul>
+        </div>
+
+        <div id="weekly_tasks" class="task_category">
+            <h3>Weekly Tasks</h3>
+
+            <ul>
+                <li>
+                    <div class="task_name">Grocery Shopping</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">D2 Raids</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">House Cleaning</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+            </ul>
+        </div>
+
+        <div id="daily_tasks" class="task_category">
+            <h3>Daily Tasks</h3>
+
+            <ul>
+                <li>
+                    <div class="task_name">Take Medication</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Drink Water</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Go to the Gym</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+
+                <li>
+                    <div class="task_name">Complete Math Homework.</div>
+                    <button class="task_update_button">Update</button>
+                    <button class="task_delete_button">Delete</button>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        &copy 2023 William Hottenstein, ___, ___ <br>
+        <!--a href="https://github.com/MysticDwat/CSE_4234_5234_Group_Project">GitHub Repository</a-->
+    </footer>
 </body>
 </html>
