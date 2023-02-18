@@ -9,9 +9,31 @@ $color5: #7698b3;
     color: $color2;
 }
 
-header nav ul {
+body,
+header,
+.navigation,
+.navitgation nav,
+footer {
+    display: grid;
+    place-items: center;
+}
+
+body {
+    padding-top: 5em;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: black;
+    z-index: 1;
+}
+
+.navigation nav ul {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
 
     list-style: none;
@@ -26,17 +48,72 @@ header nav ul {
     li:hover {
         transform: scale(1.2);
         font-weight: bold;
-        color: $color3;
     }
 
     .fade {
         opacity: 50%;
         transform: scale(0.9 );
-        color: $color5;
     }
 
     a {
         color: inherit;
         text-decoration: none;
     }
+}
+
+.folder {
+    width: clamp(10em, 50vw, 50em);
+    height: clamp(14em, 71vw, 71em);
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    z-index: 0;
+}
+
+.tab-option {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    background: darkgrey;
+    border-radius: 0 5px 5px 0;
+    height: 6em;
+    width: 2em;
+    margin: 0.1em 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tabs:first-child {
+    margin-top: 1em;
+}
+
+.tab-option.highlight {
+    background: grey;
+}
+
+.content {
+    background: grey;
+    border-radius: 5px;
+    padding: 0.5em;
+    position: relative;
+}
+
+.tab-content {
+    color: black;
+    background: floralwhite;
+    padding: 0.5em;
+    height: calc(100% - 1em);
+    display: none;
+}
+
+.tab-content.show{
+    display: block;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: black;
 }
