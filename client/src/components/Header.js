@@ -1,4 +1,5 @@
 import '../styling/test.css';
+import {Link} from 'react-router-dom';
 
 export default function Header() {
     return(
@@ -11,15 +12,15 @@ export default function Header() {
                 <nav id="user_nav" className="menu">
                     <ul>
                         <li>
-                            <a>Login</a>
+                            <Link to={'/login'}>Login</Link>
                         </li>
 
                         <li>
-                            <a>Sign Up</a>
+                            <Link to={'/register'}>Sign Up</Link>
                         </li>
 
                         <li>
-                            <a>Settings</a>
+                            <Link to={'/settings'}>Settings</Link>
                         </li>
                     </ul>
                 </nav>
@@ -27,19 +28,23 @@ export default function Header() {
                 <nav id="site_nav" className="menu">
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <Link to={'/'}>Home</Link>
                         </li>
 
                         <li>
-                            <a href="list.html">Task List</a>
+                            <Link to={'/list'}>Task List</Link>
                         </li>
 
                         <li>
-                            <a href="createNew.html">Create Task</a>
+                            <Link to={'/create'}>Create Task</Link>
                         </li>
 
                         <li>
-                            <a>About</a>
+                            <Link to={'/about'}>About</Link>
+                        </li>
+
+                        <li>
+                            <Link to={'/detail'}>Task Detail (TEMP)</Link>
                         </li>
                     </ul>
                 </nav>
