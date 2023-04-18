@@ -1,4 +1,4 @@
-import '../styling/footer.css';
+import '../styling/css/footer.css';
 
 export default function Footer(){
     return(

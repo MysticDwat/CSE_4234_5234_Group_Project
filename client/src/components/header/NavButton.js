@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-import '../styling/nav_button.css';
+import '../../styling/header/css/button.css';
 
 export default function NavButton(props) {
     const [is_active, set_is_active] = useState(false);

@@ -1,3 +1,5 @@
+import '../styling/css/folder.css';
+
 export default function List(){
     return(
         <div>

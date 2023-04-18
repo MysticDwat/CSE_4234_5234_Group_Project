@@ -1,0 +1,11 @@
+:root {
+  background: black;
+  color: floralwhite;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+}/*# sourceMappingURL=index.css.map */

@@ -1,4 +1,4 @@
-import '../styling/header.css';
+import '../../styling/header/css/header.css';
 import NavMenu from './NavMenu';
 
 export default function Header() {
