@@ -1,9 +1,16 @@
+$header_height: 10em;
+
 header {
-    display: grid;
-    place-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: black;
-    z-index: 1;
-  }
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: black;
+  z-index: 1;
+}
+
+body {
+  margin-top: $header_height;
+}

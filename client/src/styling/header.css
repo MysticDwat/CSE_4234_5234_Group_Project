@@ -3,7 +3,12 @@ header {
   place-items: center;
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   background: black;
   z-index: 1;
+}
+
+body {
+  margin-top: 10em;
 }/*# sourceMappingURL=header.css.map */

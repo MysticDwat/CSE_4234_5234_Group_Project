@@ -1,0 +1,17 @@
+$color1: black;
+$color2: floralwhite;
+$color3: #c33c54;
+$color4: #e76f51;
+$color5: #7698b3;
+
+:root {
+    background: $color1;
+    color: $color2;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    width: 100%;
+}

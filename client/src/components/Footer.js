@@ -1,11 +1,9 @@
-import '../styling/test.css';
+import '../styling/footer.css';
 
 export default function Footer(){
     return(
-        <div>
-            <footer>
-                &copy 2023 Dattis, Hottenstein, Monroe <br/>
-            </footer>
-        </div>
+        <footer>
+            &copy 2023 Dattis, Hottenstein, Monroe <br/>
+        </footer>
     );
 }
