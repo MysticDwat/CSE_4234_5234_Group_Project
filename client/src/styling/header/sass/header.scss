@@ -1,5 +1,3 @@
-$header_height: 10em;
-
 header {
   display: grid;
   place-items: center;
@@ -9,8 +7,4 @@ header {
   width: 100vw;
   background: black;
   z-index: 1;
-}
-
-body {
-  margin-top: $header_height;
 }
