@@ -1,6 +1,7 @@
 .folder {
   width: clamp(10em, 50vw, 50em);
-  height: clamp(14em, 71vw, 71em);
+  height: -moz-max-content;
+  height: max-content;
   display: grid;
   grid-template-columns: 2em 1fr;
   z-index: 0;
@@ -20,7 +21,7 @@
   cursor: pointer;
 }
 .folder .tabs:first-child {
-  margin-top: 1em;
+  margin: 1em 0;
 }
 .folder .tab-option.highlight {
   background: grey;

@@ -1,0 +1,21 @@
+form {
+  background: gray;
+  padding: 0.1em 1em;
+  border-radius: 5px;
+}
+form ul {
+  list-style: none;
+  padding: 0;
+}
+form ul label {
+  display: inline-block;
+  width: 5.5em;
+}
+form ul .form-buttons {
+  display: flex;
+  -moz-column-gap: 0.5em;
+       column-gap: 0.5em;
+}
+form ul .form-buttons input {
+  width: 6em;
+}/*# sourceMappingURL=create.css.map */

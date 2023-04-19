@@ -1,0 +1,24 @@
+form {
+    background: gray;
+    padding: 0.1em 1em;
+    border-radius: 5px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        label {
+            display: inline-block;
+            width: 5.5em;
+        }
+
+        .form-buttons {
+            display: flex;
+            column-gap: 0.5em;
+
+            input {
+                width: 6em;
+            }
+        }
+    }
+}
