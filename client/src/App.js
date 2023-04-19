@@ -8,6 +8,11 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Routes>
+        <Route path="/" element={match.url}>
+        // <Link to="{match.url}">
+        </Link>
+      </Routes>
       <Outlet />
       <Footer />
     </div>
