@@ -17,11 +17,13 @@ root.render(
       <Routes>
           {/*Site routes. Page is parent element that the menus render on top of.*/}
           <Route path='/' element={<App />} >
+            <Switch>
               <Route path='/' element={<Home />} />
               <Route path='/create' element={<Create />} />
               <Route path='/list' element={<List />} />
               <Route path='/detail' element={<Detail />} />
               <Route path='*' element={<p style={{fontSize: '32px'}}>404 ERROR: Page not found.</p>} />
+            </Switch>
           </Route>
       </Routes>
   </BrowserRouter>
