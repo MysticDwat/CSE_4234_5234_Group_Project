@@ -1,16 +1,20 @@
 .nav_button {
   transition: 0.2s ease-in-out;
-  padding: 0 0.4em;
+  height: 100%;
+  padding: 0.2em 0.4em;
   color: inherit;
   text-decoration: none;
+  border-radius: 0 0 5px 5px;
+  background-color: darkgray;
 }
 
 .nav_button.highlight {
-  transform: scale(1.2);
+  transform: scale(1);
   font-weight: bold;
 }
 
 .nav_button.fade {
-  opacity: 50%;
-  transform: scale(0.9);
+  opacity: 95%;
+  transform: translateY(-5%);
+  filter: blur(0.5px);
 }/*# sourceMappingURL=button.css.map */

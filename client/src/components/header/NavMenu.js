@@ -11,7 +11,7 @@ export default function NavMenu(props) {
     );
 
     return(
-        <nav className="menu">
+        <nav id={props.id} className="menu">
             {nav_button_list}
         </nav>
     );

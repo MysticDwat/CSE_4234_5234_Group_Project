@@ -4,11 +4,21 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  background: black;
-  z-index: 1;
+  width: 100%;
+  background: none;
+  margin: 0;
+  z-index: 2;
+  transition: 0.1s ease-in-out;
 }
-
-body {
-  margin-top: 100em;
+header h1 {
+  width: 100%;
+  margin: 0;
+  padding: 22px;
+  text-align: center;
+  background: gray;
+}
+header #navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }/*# sourceMappingURL=header.css.map */

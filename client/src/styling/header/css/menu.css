@@ -3,7 +3,19 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  -moz-column-gap: 2px;
+       column-gap: 2px;
   list-style: none;
-  font-size: 16px;
-  height: 2em;
+  font-size: 18px;
+  height: -moz-max-content;
+  height: max-content;
+  z-index: 1;
+}
+
+#user-nav {
+  margin-right: 1em;
+}
+
+#page-nav {
+  margin-left: 1em;
 }/*# sourceMappingURL=menu.css.map */

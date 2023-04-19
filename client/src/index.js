@@ -5,7 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import App from './App';
 import Home from './components/Home';
 import Detail from './components/Detail';
-import List from './components/List';
+import List from './components/list/List';
 import Create from './components/Create';
 
 import reportWebVitals from './reportWebVitals';
