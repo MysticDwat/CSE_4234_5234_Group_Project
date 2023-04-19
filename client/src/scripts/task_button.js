@@ -16,12 +16,29 @@ for (let button of buttons) {
     let taskID = taskCounter + taskCounter.charCodeAt(index);
     
     // setting up task name
-    let task name
+    let taskName;
+    
+    // setting up task topic
+    let taskTopic;
+    
+    // setting up categoryID
+    let categoryID;
+    
+    // setting up date and time
+    let dateTime;
+    
+    // setting up task status
+    let taskStatus;
     
     button.onclick = () => {
-        button.setProperty(id,taskID);
-        button.setName(name,taskName);
-        button task list 
+        let buttonProperties = {
+            id: taskID,
+            name: taskName,
+            topic: taskTopic,
+            category: categoryID,
+            when: dateTime,
+            status: taskStatus,
+        }
         location.href = 'list.html';
     };
     
