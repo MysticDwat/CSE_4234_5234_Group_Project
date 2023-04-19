@@ -30,8 +30,7 @@ export default function Header() {
                             ['/','Home'],
                             ['/list','Task List'],
                             ['/create','Create Task'],
-                            ['/about','About'],
-                            ['/detail','Task Detail (TEMP)']
+                            ['/about','About']
                         ]
                     } 
                 />
