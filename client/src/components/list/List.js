@@ -9,7 +9,7 @@ export default function List(){
 
     return(
         <main>
-            <div className="folder" data-active="tab-1">
+            <div className="folder">
                 <div className="tabs">
                     <Tab id={'tab-0'} name={'Urgent'} set_active_id={set_active_id} tab_key={0} />
                     <Tab id={'tab-1'} name={'Important'} set_active_id={set_active_id} tab_key={1} />

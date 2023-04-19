@@ -5,8 +5,7 @@
   grid-template-columns: 2em 1fr;
   z-index: 0;
 }
-
-.tab-option {
+.folder .tab-option {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   background: darkgrey;
@@ -20,30 +19,25 @@
   align-items: center;
   cursor: pointer;
 }
-
-.tabs:first-child {
+.folder .tabs:first-child {
   margin-top: 1em;
 }
-
-.tab-option.highlight {
+.folder .tab-option.highlight {
   background: grey;
 }
-
-.content {
+.folder .content {
   background: grey;
   border-radius: 5px;
   padding: 0.5em;
   position: relative;
 }
-
-.tab-content {
+.folder .tab-content {
   color: black;
   background: floralwhite;
   padding: 0.5em;
   height: calc(100% - 1em);
   display: none;
 }
-
-.tab-content.show {
+.folder .tab-content.show {
   display: block;
 }/*# sourceMappingURL=folder.css.map */

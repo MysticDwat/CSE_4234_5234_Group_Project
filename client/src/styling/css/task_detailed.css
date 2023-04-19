@@ -1,0 +1,23 @@
+.task-detailed {
+  width: 25vw;
+}
+.task-detailed .tab {
+  background: darkgray;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 5px 5px 0 0;
+  padding: 5px;
+  margin-left: 10px;
+}
+.task-detailed .content {
+  background: gray;
+  border-radius: 5px 5px 5px 5px;
+  padding: 0.8em 1em;
+}
+.task-detailed .content .minimized-info {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 0.6em;
+       column-gap: 0.6em;
+  margin: 0.8em 0;
+}/*# sourceMappingURL=task_detailed.css.map */
