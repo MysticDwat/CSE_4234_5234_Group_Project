@@ -1,4 +1,5 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useContext } from 'react';
+import { UserContext } from '../../scripts/firebase';
 
 import '../../styling/header/css/header.css';
 import useScrollDirection from '../../scripts/useScrollDirection';
@@ -7,6 +8,7 @@ import NavMenu from './NavMenu';
 export default function Header() {
     const header = useRef(null);
     const title = useRef(null);
+    const user = useContext(UserContext);
     const scroll_direction = useScrollDirection();
     
     useEffect(() => {
@@ -38,11 +40,18 @@ export default function Header() {
                 <NavMenu 
                     id='user-nav'
                     buttons={
+                        user ?
+                        [
+                            ['/user',user.email],
+                            ['/sign-out','Sign Out'],
+                            ['/settings','Settings']
+                        ] :
                         [
                             ['/login','Login'],
                             ['/register','Sign Up'],
                             ['/settings','Settings']
                         ]
+                        
                     } 
                 />
             </div>
