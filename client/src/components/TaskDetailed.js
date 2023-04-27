@@ -13,7 +13,7 @@ export default function TaskDetailed(props) {
 
             <div className='content'>
                 <div className="task-description">
-                    Fill up on prescription at Publix Pharmacy for Adderall. 
+                    {props.description}
                 </div>
 
                 <div className='minimized-info'>

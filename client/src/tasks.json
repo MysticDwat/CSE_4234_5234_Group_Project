@@ -1,0 +1,146 @@
+[
+    {
+        "id":0,
+        "name":"Make Doctor's Appointment",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Urgent",
+        "category_id":0,
+        "due_date":"05/08/2023 23:59:59",
+        "status":"incomplete"
+    },
+    {
+        "id":1,
+        "name":"Refill Prescription",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Urgent",
+        "category_id":0,
+        "due_date":"05/10/2023 22:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":2,
+        "name":"Respond to Interview Offer",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Urgent",
+        "category_id":0,
+        "due_date":"05/06/2023 12:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":3,
+        "name":"Book Hotel for Vacation",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Important",
+        "category_id":1,
+        "due_date":"05/12/2023 28:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":4,
+        "name":"Call Parents",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Important",
+        "category_id":1,
+        "due_date":"05/12/2023 20:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":5,
+        "name":"Complete Project Milestone",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Important",
+        "category_id":1,
+        "due_date":"05/05/2023 23:59:59",
+        "status":"incomplete"
+    },
+    {
+        "id":6,
+        "name":"Pay Rent",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Monthly",
+        "category_id":2,
+        "due_date":"05/31/2023 18:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":7,
+        "name":"Pay Utilities",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Monthly",
+        "category_id":2,
+        "due_date":"06/01/2023 23:59:59",
+        "status":"incomplete"
+    },
+    {
+        "id":8,
+        "name":"Buy Toiletries",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Monthly",
+        "category_id":2,
+        "due_date":"05/20/2023 22:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":9,
+        "name":"Grocery Shopping",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Weekly",
+        "category_id":3,
+        "due_date":"05/07/2023 22:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":10,
+        "name":"Destiny 2 Raids",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Weekly",
+        "category_id":3,
+        "due_date":"05/09/2023 13:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":11,
+        "name":"House Cleaning",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Weekly",
+        "category_id":3,
+        "due_date":"05/07/0000 20:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":12,
+        "name":"Take Medication",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Daily",
+        "category_id":4,
+        "due_date":"05/06/0000 10:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":13,
+        "name":"Drink Water 24oz",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Daily",
+        "category_id":4,
+        "due_date":"05/06/2023 22:00:00",
+        "status":"incomplete"
+    },
+    {
+        "id":14,
+        "name":"Go to Gym",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Daily",
+        "category_id":4,
+        "due_date":"05/06/2023 08:30:00",
+        "status":"incomplete"
+    },
+    {
+        "id":15,
+        "name":"Complete Homework",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, vero quibusdam deleniti quasi corporis porro!",
+        "category":"Daily",
+        "category_id":4,
+        "due_date":"05/06/2023 23:59:59",
+        "status":"incomplete"
+    }
+]
