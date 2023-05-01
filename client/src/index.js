@@ -21,7 +21,7 @@ root.render(
               <Route path='/' element={<Home />} />
               <Route path='/create' element={<Create />} />
               <Route path='/list' element={<List />} />
-              <Route path='/detail/:category_id/:task_id/:name' element={<Detail />} />
+              <Route path='/detail/:category_id/:task_id' element={<Detail />} />
               <Route path='/login' element={<SignIn />} />
               <Route path='/sign-out' element={<button onClick={() => signOutUser()}>Sign Out</button>} />
               <Route path='*' element={<p style={{fontSize: '32px'}}>404 ERROR: Page not found.</p>} />

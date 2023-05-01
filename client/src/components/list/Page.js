@@ -12,8 +12,8 @@ export default function PageJS(props) {
                     props.tasks.map((x) => 
                         <li key ={x._id}>
                             <div className="task_name">{x.name}</div>
-                            <button className="task_update_button" onClick={(e) => navigate(`/detail/${x.category_id}/${x._id}/${x.name}`)} >Update</button>
-                            <button className="task_delete_button"onClick={(e) => navigate(`/detail/${x.category_id}/${x._id}/${x.name}`)} >Delete</button>
+                            <button className="task_update_button" onClick={(e) => navigate(`/detail/${x.category_id}/${x._id}`)} >Update</button>
+                            <button className="task_delete_button"onClick={(e) => navigate(`/detail/${x.category_id}/${x._id}`)} >Delete</button>
                         </li>
                     )
                 }
