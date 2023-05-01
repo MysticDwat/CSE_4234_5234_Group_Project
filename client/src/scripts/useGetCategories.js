@@ -4,7 +4,7 @@ export default function useGetCategories(user_id, [category_id=null, is_name=tru
     const [categories, set_categories] = useState([]);
 
     useEffect(() => {
-        let get_tasks = async () => {
+        let get_categories = async () => {
             await fetch(category_id !== null ?
                 `/api/get/categories/${user_id}/${is_name ? 'name' : '_id'}/${category_id}` :
                 `/api/get/categories/${user_id}`,
@@ -20,7 +20,7 @@ export default function useGetCategories(user_id, [category_id=null, is_name=tru
                 });
         }
 
-        get_tasks();
+        get_categories();
     },[JSON.stringify(categories), user_id, category_id, is_name]);
 
     return categories;
