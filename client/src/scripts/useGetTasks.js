@@ -1,14 +1,22 @@
 import { useState, useEffect } from 'react';
-import Tasks from  '../tasks.json';
 
-export default function useGetTasks(task_id) {
-    const [tasks, set_tasks] = useState(Tasks);
+export default function useGetTasks(user_id, task_id=null) {
+    const [tasks, set_tasks] = useState([]);
 
     useEffect(() => {
-        let task_list = task_id === undefined ? Tasks : Tasks[task_id];
+        let get_tasks = async () => {
+            await fetch(task_id !== null ? `/api/get/tasks/${user_id}/${task_id}` : `/api/get/tasks/${user_id}`,{method: "GET"})
+                .then(async (res) => {
+                    let data = await res.json();
+                    set_tasks(data.message);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
 
-        set_tasks(task_list);
-    },[JSON.stringify(tasks), task_id]);
+        get_tasks();
+    },[JSON.stringify(tasks), user_id, task_id]);
 
     return tasks;
 }
