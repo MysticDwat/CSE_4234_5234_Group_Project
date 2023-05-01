@@ -1,0 +1,24 @@
+{
+  "name": "cse_4234_5234_group_project",
+  "version": "1.0.0",
+  "description": "Group project for CSE 4234/5234 Web Applications. Project is to create a website that helps the user create and keep track of tasks and a to-do list.",
+  "main": "index.js",
+  "scripts": {
+    "server": "node index.js",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MysticDwat/CSE_4234_5234_Group_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MysticDwat/CSE_4234_5234_Group_Project/issues"
+  },
+  "homepage": "https://github.com/MysticDwat/CSE_4234_5234_Group_Project#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0"
+  }
+}
