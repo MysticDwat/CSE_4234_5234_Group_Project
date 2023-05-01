@@ -70,15 +70,19 @@ app.get('/api/get/tasks/:user_id', async (req, res) => {
     }
 });
 
-//get task by name
-app.get('/api/get/tasks/:user_id/:task_name', async (req, res) => {
+//get task by id
+app.get('/api/get/tasks/:user_id/:id_type/:task_id', async (req, res) => {
     //url parameters
     let parameters = req.params;
     let user_id = parameters['user_id'] === 'public' ? null : parameters['user_id'];
 
     try {
         //attempt to find task by id
-        let doc = await Task.findOne({name: parameters['task_name'], user_id: user_id});
+        let doc = await Task.findOne(
+            {
+                [parameters['id_type']]: parameters['task_id'], 
+                user_id: user_id
+            });
 
         //if task was not found, indicate task id not found
         if(!doc){
@@ -120,15 +124,19 @@ app.get('/api/get/categories/:user_id', async (req, res) => {
     }
 });
 
-//get category by name
-app.get('/api/get/categories/:user_id/:category_name', async (req, res) => {
+//get category by id
+app.get('/api/get/categories/:user_id/:id_type/:category_id', async (req, res) => {
     //url parameters
     let parameters = req.params;
     let user_id = parameters['user_id'] === 'public' ? null : parameters['user_id'];
 
     try {
         //attempt to find category by name
-        let doc = await Category.findOne({name: parameters['category_name'], user_id: user_id});
+        let doc = await Category.findOne(
+            {
+                [parameters['id_type']] : parameters['category_id'], 
+                user_id: user_id
+            });
 
         //if category was not found, indicate category name not found
         if(!doc){
