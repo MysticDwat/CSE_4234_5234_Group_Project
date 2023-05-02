@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { UserContext, UserIDContext } from '../../scripts/firebase';
+import { UserIDContext } from '../../scripts/firebase';
 import useGetTasks from '../../scripts/useGetTasks';
 import useGetCategories from '../../scripts/useGetCategories';
 

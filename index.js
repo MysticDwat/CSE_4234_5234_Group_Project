@@ -177,6 +177,143 @@ app.get('/api/get/users/:firebase_uid', async (req, res) => {
     }
 });
 
+//create task
+app.post('/api/create/tasks', async (req, res) => {
+    let data = req.body;
+
+    try {
+        //create new user document
+        let new_task = new Task(data);
+
+        //attempt to create user in db
+        let doc = await Task.create(new_task).catch(err => console.log(err));
+
+        //if user was not found, indicate user id not found
+        if(!doc){
+            res.status(404).json({message: 'Document not created'});
+            return;
+        }
+
+        //send task
+        res.status(200).json({message: doc});
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({message: 'Server failed to look up user.'});
+    }
+});
+
+//create category
+app.post('/api/create/categories', async (req, res) => {
+    let data = req.body;
+
+    try {
+        //create new user document
+        let new_category = new Category(data);
+
+        //attempt to create user in db
+        let doc = await Category.create(new_category).catch(err => console.log(err));
+
+        //if user was not found, indicate user id not found
+        if(!doc){
+            res.status(404).json({message: 'Document not created'});
+            return;
+        }
+
+        //send task
+        res.status(200).json({message: doc});
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({message: 'Server failed to look up user.'});
+    }
+});
+
+//create user
+app.post('/api/create/users', async (req, res) => {
+    let data = req.body;
+
+    try {
+        //create new user document
+        let new_user = new User(data);
+
+        //attempt to create user in db
+        let doc = await User.create(new_user).catch(err => console.log(err));
+        console.log(doc);
+
+        //if user was not found, indicate user id not found
+        if(!doc){
+            res.status(404).json({message: 'Document not created'});
+            return;
+        }
+
+        //send task
+        res.status(200).json({message: 'Document created.'});
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({message: 'Server failed to look up user.'});
+    }
+});
+
+//delete task
+app.delete('/api/delete/tasks/:user_id/:task_id', async (req, res) => {
+    //store url parameters
+    let parameters = req.params;
+    let user_id = parameters['user_id'] === 'public' ? null : parameters['user_id'];
+
+    try {
+        //attempt to create user in db
+        let doc = await Task.deleteOne(
+            {
+                _id: parameters['task_id'], 
+                user_id: user_id
+            });
+
+        //if user was not found, indicate user id not found
+        if(!doc){
+            res.status(404).json({message: 'Document not deleted'});
+            return;
+        }
+
+        //send task
+        res.status(200).json({message: 'Document deleted.'});
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({message: 'Server failed to look up user.'});
+    }
+});
+
+//delete task
+app.delete('/api/delete/categories/:user_id/:category_id', async (req, res) => {
+    //store url parameters
+    let parameters = req.params;
+    let user_id = parameters['user_id'] === 'public' ? null : parameters['user_id'];
+
+    try {
+        //attempt to create user in db
+        let doc = await Category.deleteOne(
+            {
+                _id: parameters['category_id'], 
+                user_id: user_id
+            });
+
+        //if user was not found, indicate user id not found
+        if(!doc){
+            res.status(404).json({message: 'Document not deleted'});
+            return;
+        }
+
+        //send task
+        res.status(200).json({message: 'Document deleted.'});
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({message: 'Server failed to look up user.'});
+    }
+});
+
 //open app to listen on port
 app.listen(PORT, function(err){
     if (err) console.log(err);
