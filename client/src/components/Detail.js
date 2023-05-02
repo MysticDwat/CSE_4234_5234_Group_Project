@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserIDContext } from '../scripts/firebase';
+import { UserContext } from '../scripts/firebase';
 
 import TaskDetailed from "./TaskDetailed";
 import useGetTasks from "../scripts/useGetTasks";
 
 export default function Detail(){
     const { task_id } = useParams();
-    const user_id = useContext(UserIDContext);
-    const tasks = useGetTasks(user_id !== null ? user_id : 'public', [task_id, false]);
+    const user = useContext(UserContext);
+    const tasks = useGetTasks(user !== null ? user.uid : 'public', [task_id, false]);
     
     return(
         <main>

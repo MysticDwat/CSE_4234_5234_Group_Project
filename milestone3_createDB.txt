@@ -1,6 +1,5 @@
 use cse5234_task_list
 db.createCollection("tasks")
-db.createCollection("users")
 db.createCollection("categories")
 db.categories.insert({'user_id': None, 'name': 'Urgent', '_id': ObjectId('644c206239a5445bbdfad5d8')})
 db.categories.insert({'user_id': None, 'name': 'Important', '_id': ObjectId('644c206239a5445bbdfad5d9')})

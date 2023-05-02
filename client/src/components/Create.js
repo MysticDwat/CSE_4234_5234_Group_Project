@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserIDContext } from '../scripts/firebase';
+import { UserContext } from '../scripts/firebase';
 import useGetCategories from '../scripts/useGetCategories';
 
 import '../styling/css/create.css';
@@ -14,8 +14,8 @@ export default function Create() {
     const [description, set_description] = useState('');
 
     const navigate = useNavigate();
-    const user_id = useContext(UserIDContext);
-    const categories = useGetCategories(user_id !== null ? user_id : 'public');
+    const user = useContext(UserContext);
+    const categories = useGetCategories(user !== null ? user.uid : 'public');
 
     let handle_submit = async () => {
         let category_id = category;
@@ -28,7 +28,7 @@ export default function Create() {
                 body: JSON.stringify(
                 {
                     name: new_category,
-                    user_id: user_id
+                    user_id: user.uid
                 })
             })
             .then(async (res) => {
@@ -45,7 +45,7 @@ export default function Create() {
             body: JSON.stringify(
             {
                 name: name,
-                user_id: user_id,
+                user_id: user.uid,
                 category_id: category_id,
                 due_date: due_date,
                 status: status,

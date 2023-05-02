@@ -39,4 +39,3 @@ export const signOutUser = () => {
 }
 
 export const UserContext = createContext(null);
-export const UserIDContext = createContext(null);

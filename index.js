@@ -28,17 +28,11 @@ const category_schema = new mongoose.Schema({
     name: String
 });
 
-const user_schema = new mongoose.Schema({
-    firebase_uid: String
-});
-
 task_schema.index({user_id: 1, category_id: 1, name: 1},{unique: true});
 category_schema.index({user_id: 1, name: 1},{unique: true});
-user_schema.index({firebase_uid: 1},{unique: true});
 
 const Task = new mongoose.model('Task', task_schema);
 const Category = new mongoose.model('Category', category_schema);
-const User = new mongoose.model('User', user_schema);
 
 //connect to mongodb server
 (async () => {
@@ -153,30 +147,6 @@ app.get('/api/get/categories/:user_id/:id_type/:category_id', async (req, res) =
     }
 });
 
-//get user id by uid
-app.get('/api/get/users/:firebase_uid', async (req, res) => {
-    //url parameters
-    let parameters = req.params;
-
-    try {
-        //attempt to find user by uid
-        let doc = await User.findOne({firebase_uid: parameters['firebase_uid']});
-
-        //if user was not found, indicate user id not found
-        if(!doc){
-            res.status(404).json({message: 'Firebase uid not found.'});
-            return;
-        }
-
-        //send task
-        res.status(200).json({message: doc});
-
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({message: 'Server failed to look up user.'});
-    }
-});
-
 //create task
 app.post('/api/create/tasks', async (req, res) => {
     let data = req.body;
@@ -222,33 +192,6 @@ app.post('/api/create/categories', async (req, res) => {
 
         //send task
         res.status(200).json({message: doc});
-
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({message: 'Server failed to look up user.'});
-    }
-});
-
-//create user
-app.post('/api/create/users', async (req, res) => {
-    let data = req.body;
-
-    try {
-        //create new user document
-        let new_user = new User(data);
-
-        //attempt to create user in db
-        let doc = await User.create(new_user).catch(err => console.log(err));
-        console.log(doc);
-
-        //if user was not found, indicate user id not found
-        if(!doc){
-            res.status(404).json({message: 'Document not created'});
-            return;
-        }
-
-        //send task
-        res.status(200).json({message: 'Document created.'});
 
     } catch (err) {
         console.log(err);

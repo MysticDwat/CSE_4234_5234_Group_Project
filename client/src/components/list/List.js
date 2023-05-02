@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { UserIDContext } from '../../scripts/firebase';
+import { UserContext } from '../../scripts/firebase';
 import useGetTasks from '../../scripts/useGetTasks';
 import useGetCategories from '../../scripts/useGetCategories';
 
@@ -9,9 +9,9 @@ import Page from './Page';
 
 export default function List(){
     const [active_id, set_active_id] = useState(0);
-    const user_id = useContext(UserIDContext);
-    const tasks = useGetTasks(user_id !== null ? user_id : 'public');
-    const categories = useGetCategories(user_id !== null ? user_id : 'public');
+    const user = useContext(UserContext);
+    const tasks = useGetTasks(user !== null ? user.uid : 'public');
+    const categories = useGetCategories(user !== null ? user.uid : 'public');
 
     return(
         <main>
