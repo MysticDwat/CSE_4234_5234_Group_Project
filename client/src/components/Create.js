@@ -28,7 +28,7 @@ export default function Create() {
                 body: JSON.stringify(
                 {
                     name: new_category,
-                    user_id: user.uid
+                    user_id: user ? user.uid : null
                 })
             })
             .then(async (res) => {
@@ -45,7 +45,7 @@ export default function Create() {
             body: JSON.stringify(
             {
                 name: name,
-                user_id: user.uid,
+                user_id: user ? user.uid : null,
                 category_id: category_id,
                 due_date: due_date,
                 status: status,
