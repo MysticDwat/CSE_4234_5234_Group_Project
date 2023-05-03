@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { signInWithEmail, signInWithGoogle } from "../../scripts/firebase";
+import { signInWithEmail, signInWithGoogle } from "../../scripts/firebase.js";
 
 export default function SignIn() {
     const navigate = useNavigate();

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { signOutUser } from './scripts/firebase';
 
 import App from './App';
 import Home from './components/Home';
@@ -10,7 +9,8 @@ import Detail from './components/Detail';
 import Update from './components/Update';
 import List from './components/list/List';
 import Create from './components/Create';
-import SignIn from './components/account/SingIn';
+import SignIn from './components/account/SignIn';
+import SignOut from './components/account/SignOut';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,7 +25,7 @@ root.render(
               <Route path='/detail/:task_id' element={<Detail />} />
               <Route path='/update/:task_id' element={<Update />} />
               <Route path='/login' element={<SignIn />} />
-              <Route path='/sign-out' element={<button onClick={() => signOutUser()}>Sign Out</button>} />
+              <Route path='/sign-out' element={<SignOut />} />
               <Route path='*' element={<p style={{fontSize: '32px'}}>404 ERROR: Page not found.</p>} />
           </Route>
       </Routes>
