@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../../scripts/firebase';
 import useGetTasks from '../../scripts/useGetTasks';
 import useGetCategories from '../../scripts/useGetCategories';
@@ -10,6 +10,8 @@ import Page from './Page';
 export default function List(){
     const [active_id, set_active_id] = useState(0);
     const [refresh, set_refresh] = useState(false);
+    const [search_name, set_search_name] = useState('');
+
     const user = useContext(UserContext);
     const tasks = useGetTasks(user !== null ? user.uid : 'public',[null, true, refresh]);
     const categories = useGetCategories(user !== null ? user.uid : 'public');
@@ -18,12 +20,29 @@ export default function List(){
         set_refresh(!refresh);
     }
 
+    let filter_tabs = () => {
+        let new_category_tasks = {};
+
+        for (let x of categories) {
+            new_category_tasks[x._id] = tasks.filter(y => y.category_id === x._id && (search_name === '' || y.name.includes(search_name)));
+        }
+
+        new_category_tasks = Object.fromEntries(Object.entries(new_category_tasks).filter(x => x[1].length > 0));
+        
+        return categories.filter(x => Object.keys(new_category_tasks).includes(x._id))
+                .map((x,i) => <Tab id={`tab-${i}`} name={x.name} set_active_id={set_active_id} tab_key={i} key={x.name} />);
+    }
+
     return(
         <main>
             {tasks.length ? 
                 <div className="folder">
+                    <div className='search-bar'>
+                        <input type='text' placeholder='Search...' value={search_name} onChange={(e) => set_search_name(e.target.value)} />
+                    </div>
+
                     <div className="tabs">
-                        {categories.map((x,i) => <Tab id={`tab-${i}`} name={x.name} set_active_id={set_active_id} tab_key={i} key={x.name} />)}
+                        {filter_tabs()}
                     </div>
 
                     <div className="content">
@@ -35,7 +54,7 @@ export default function List(){
                                     active={active_id} 
                                     content_key={i} 
                                     key={x.name}
-                                    tasks={tasks.filter(y => y.category_id === x._id)}
+                                    tasks={tasks.filter(y => y.category_id === x._id && (search_name === '' || y.name.includes(search_name)))}
                                     toggle_refresh={toggle_refresh}
                                 />
                             )

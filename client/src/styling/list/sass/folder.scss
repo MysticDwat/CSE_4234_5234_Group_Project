@@ -3,7 +3,17 @@
     height: max-content;
     display: grid;
     grid-template-columns: 2em 1fr;
+    grid-template-rows: 2em 1fr;
     z-index: 0;
+
+    .search-bar {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
+    .tabs:first-child {
+        margin: 1em 0;
+    }
 
     .tab-option {
         writing-mode: vertical-rl;
@@ -18,10 +28,6 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-    }
-    
-    .tabs:first-child {
-        margin: 1em 0;
     }
     
     .tab-option.highlight {
