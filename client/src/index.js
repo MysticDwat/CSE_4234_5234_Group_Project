@@ -7,6 +7,7 @@ import { signOutUser } from './scripts/firebase';
 import App from './App';
 import Home from './components/Home';
 import Detail from './components/Detail';
+import Update from './components/Update';
 import List from './components/list/List';
 import Create from './components/Create';
 import SignIn from './components/account/SingIn';
@@ -21,7 +22,8 @@ root.render(
               <Route path='/' element={<Home />} />
               <Route path='/create' element={<Create />} />
               <Route path='/list' element={<List />} />
-              <Route path='/detail/:category_id/:task_id' element={<Detail />} />
+              <Route path='/detail/:task_id' element={<Detail />} />
+              <Route path='/update/:task_id' element={<Update />} />
               <Route path='/login' element={<SignIn />} />
               <Route path='/sign-out' element={<button onClick={() => signOutUser()}>Sign Out</button>} />
               <Route path='*' element={<p style={{fontSize: '32px'}}>404 ERROR: Page not found.</p>} />

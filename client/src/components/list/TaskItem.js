@@ -7,7 +7,7 @@ export default function TaskItem (props) {
     const navigate = useNavigate();
 
     let handle_update = () => {
-        navigate(`/update/${props.category_id}/${props._id}`)
+        navigate(`/update/${props._id}`)
     }
 
     let handle_delete = async () => {
@@ -15,19 +15,20 @@ export default function TaskItem (props) {
         {
             method: "DELETE"
         })
+        .then(() => props.toggle_refresh())
         .catch(err => console.log(err));
     }
 
     let handle_view = () => {
-        navigate(`/detail/${props.category_id}/${props._id}`)
+        navigate(`/detail/${props._id}`)
     }
     
     return(
         <li>
             <div className="task_name">{props.name}</div>
             <button className="task_view_button"onClick={handle_view} >View</button>
-            <button className="task_update_button" onClick={handle_update} >Update</button>
-            <button className="task_delete_button"onClick={handle_delete} >Delete</button>
+            {user ? <button className="task_update_button" onClick={handle_update} >Update</button> : null}
+            {user ? <button className="task_delete_button"onClick={handle_delete} >Delete</button> : null}
         </li>
     );
 }

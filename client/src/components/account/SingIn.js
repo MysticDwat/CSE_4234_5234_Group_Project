@@ -1,13 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { signInWithEmail, signInWithGoogle } from "../../scripts/firebase";
 
 export default function SignIn() {
+    const navigate = useNavigate();
+
     function handle_submit(e){
         e.preventDefault();
         const form = e.target;
         const form_data = new FormData(form);
         const form_json = Object.fromEntries(form_data.entries());
-        console.log(form_json);
         signInWithEmail(form_json['user-email'], form_json['user-password']);
+        navigate('/list');
     }
 
     return(

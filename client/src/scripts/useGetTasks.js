@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useGetTasks(user_id, [task_id=null, is_name=true] = []) {
+export default function useGetTasks(user_id, [task_id=null, is_name=true, toggle_refresh=false] = []) {
     const [tasks, set_tasks] = useState([]);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function useGetTasks(user_id, [task_id=null, is_name=true] = []) 
                 })
                 .then(async (res) => {
                     let data = await res.json();
-                    set_tasks(data.message);
+                    set_tasks(JSON.stringify(data.message));
                 })
                 .catch((err) => {
                     console.log(err);
@@ -21,7 +21,7 @@ export default function useGetTasks(user_id, [task_id=null, is_name=true] = []) 
         }
 
         get_tasks();
-    },[JSON.stringify(tasks), user_id, task_id, is_name]);
+    },[tasks, user_id, task_id, is_name, toggle_refresh]);
 
-    return tasks;
+    return tasks.length ? JSON.parse(tasks) : [];
 }

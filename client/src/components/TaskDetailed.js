@@ -20,7 +20,7 @@ export default function TaskDetailed(props) {
                     <div><FontAwesomeIcon icon={faCalendarDay} /> {props.deadline}</div>
                     <div><FontAwesomeIcon icon={faCheck} /> {props.status}</div>
                 </div>
-                <button className="task-add-button" onClick={(e) => navigate('/list')} >Add to Task List</button>
+                <button className="task-add-button" onClick={(e) => navigate('/list')} >Back to List</button>
             </div>
         </div>
     );

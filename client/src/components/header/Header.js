@@ -28,10 +28,16 @@ export default function Header() {
                 <NavMenu
                     id='page-nav' 
                     buttons={
+                        user ?
                         [
                             ['/','Home'],
                             ['/list','Task List'],
                             ['/create','Create Task'],
+                            ['/about','About']
+                        ] :
+                        [
+                            ['/','Home'],
+                            ['/list','Task List'],
                             ['/about','About']
                         ]
                     } 

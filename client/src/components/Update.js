@@ -1,21 +1,24 @@
 import { useState, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../scripts/firebase';
 import useGetCategories from '../scripts/useGetCategories';
+import useGetTasks from "../scripts/useGetTasks";
 
 import '../styling/css/create.css';
 
-export default function Create() {
+export default function Update() {
+    const { task_id } = useParams();
+    const navigate = useNavigate();
+    const user = useContext(UserContext);
+    const tasks = useGetTasks(user !== null ? user.uid : 'public', [task_id, false]);
+    const categories = useGetCategories(user !== null ? user.uid : 'public');
+    
     const [name, set_name] = useState('');
     const [category, set_category] = useState('new category');
     const [new_category, set_new_category] = useState('');
     const [due_date, set_due_date] = useState('');
     const [status, set_status] = useState('');
     const [description, set_description] = useState('');
-
-    const navigate = useNavigate();
-    const user = useContext(UserContext);
-    const categories = useGetCategories(user !== null ? user.uid : 'public');
 
     let handle_submit = async () => {
         let category_id = category;
@@ -38,31 +41,46 @@ export default function Create() {
             .catch(err => console.log(err));
         }
 
-        await fetch("/api/create/tasks",
+        console.log(category_id);
+
+        await fetch("/api/update/tasks",
         {
             method: "POST",
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(
             {
-                name: name,
-                user_id: user ? user.uid : null,
-                category_id: category_id,
-                due_date: due_date,
-                status: status,
-                description: description
+                _id: tasks._id,
+                update_data: 
+                {
+                    name: name,
+                    user_id: user ? user.uid : null,
+                    category_id: category_id,
+                    due_date: due_date,
+                    status: status,
+                    description: description
+                }
             })
         })
-        .then(() => navigate('/list'))
         .catch(err => console.log(err));
+
+        navigate('/list');
     }
 
     useEffect(() => {
-        if(!user){navigate('/list')}
-    },[user, navigate]);
+        if(!user) {navigate('/list');}
+        if(!tasks.name) {return;}
+        set_name(tasks.name);
+        set_category(tasks.category_id);
+        let date = new Date(tasks.due_date);
+        date = (new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString()).slice(0, -1);
+        set_due_date(date);
+        set_status(tasks.status);
+        set_description(tasks.description);
+    }, [tasks, user, navigate]);
 
     return(
         <main>
-            <form id="create-new-task-form" onSubmit={(e) => e.preventDefault()}>
+            <form id="create-task-form" onSubmit={(e) => e.preventDefault()}>
                 <ul>
                     <li>
                         <label htmlFor="task-name-input">Name</label>
@@ -82,7 +100,7 @@ export default function Create() {
                         <select 
                             name="task-category" 
                             id="task-category-select" 
-                            value={category} 
+                            value={category}
                             onChange={(e) => set_category(e.target.value)}
                         >
                             <option value="new category">New Category</option>
@@ -143,8 +161,7 @@ export default function Create() {
                     </li>
 
                     <li className='form-buttons'>
-                        <input type="submit" value='Create Task' onClick={handle_submit} />
-                        <input type="reset" value="Clear Task" />
+                        <input type="submit" value='Update Task' onClick={handle_submit} />
                     </li>
                 </ul>
             </form>

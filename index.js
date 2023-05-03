@@ -257,6 +257,29 @@ app.delete('/api/delete/categories/:user_id/:category_id', async (req, res) => {
     }
 });
 
+//update task
+app.post('/api/update/tasks', async (req, res) => {
+    let data = req.body;
+
+    try {
+        //attempt to create user in db
+        let doc = await Task.findByIdAndUpdate(data._id,data.update_data).catch(err => console.log(err));
+        
+        //if user was not found, indicate user id not found
+        if(!doc){
+            res.status(404).json({message: 'Document not created'});
+            return;
+        }
+
+        //send task
+        res.status(200).json({message: doc});
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({message: 'Server failed to look up user.'});
+    }
+});
+
 //open app to listen on port
 app.listen(PORT, function(err){
     if (err) console.log(err);

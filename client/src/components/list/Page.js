@@ -8,7 +8,7 @@ export default function PageJS(props) {
             <ul>
                 {
                     props.tasks.map((x) => 
-                        <TaskItem _id={x._id} name={x.name} category_id={x.category_id} key={x._id}/>
+                        <TaskItem _id={x._id} name={x.name} category_id={x.category_id} key={x._id} toggle_refresh={props.toggle_refresh} />
                     )
                 }
             </ul>
