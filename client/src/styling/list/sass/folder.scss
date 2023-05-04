@@ -11,13 +11,18 @@
     .search-bar-container {
         grid-column-start: 1;
         grid-column-end: 3;
-        background: $color4;
+        background: $folder-color-light;
         display: grid;
         place-items: center;
         width: 10em;
         margin-left: auto;
         margin-right: 1em;
         border-radius: 5px 5px 0 0;
+
+        input[type=text] {
+            background-color: $background-color-light;
+            border-radius: 5px;
+        }
     }
 
     .tabs{
@@ -27,7 +32,7 @@
     .tab-option {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
-        background: $color4;
+        background: $folder-color-light;
         border-radius: 0 5px 5px 0;
         height: 6em;
         width: 2em;
@@ -40,11 +45,11 @@
     }
     
     .tab-option.highlight {
-        background: $color3;
+        background: $folder-color-dark;
     }
     
     .content {
-        background: $color3;
+        background: $folder-color-dark;
         border-radius: 5px;
         padding: 0.5em;
         position: relative;
@@ -52,7 +57,7 @@
     
     .tab-content {
         color: $text-color-dark;
-        background: $color2;
+        background: $background-color-light;
         padding: 0.5em;
         height: calc(100% - 1em);
         display: none;
@@ -78,7 +83,7 @@
 }
 
 .no-tasks {
-    background: $color3;
+    background: $folder-color-dark;
     border-radius: 5px;
     padding: 0.5em;
     display: grid;
@@ -87,7 +92,7 @@
 
 .no-items-found {
     color: $text-color-dark;
-    background: $color2;
+    background: $background-color-light;
     padding: 0.5em;
     height: calc(100% - 1em);
     text-align: center;
