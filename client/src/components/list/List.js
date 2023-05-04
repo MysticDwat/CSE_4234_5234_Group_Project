@@ -18,50 +18,11 @@ export default function List(){
     const tasks = useGetTasks(user !== null ? user.uid : 'public',[null, true, refresh]);
     const categories = useGetCategories(user !== null ? user.uid : 'public');
 
-    let toggle_refresh = () => {
-        set_refresh(!refresh);
-    }
-
-    let filter_search_results = () => {
-        let new_category_tasks = {};
-
-        for (let x of categories) {
-            new_category_tasks[x._id] = tasks.filter(y => y.category_id === x._id && (search_name === '' || y.name.includes(search_name)));
-        }
-
-        new_category_tasks = Object.fromEntries(Object.entries(new_category_tasks).filter(x => x[1].length > 0));
-        
-        return categories.filter(x => search_name === '' || Object.keys(new_category_tasks).includes(x._id))
-    }
-
-    let filter_tabs = () => {
-        let filtered_categories = filter_search_results();
-
-        if (!filtered_categories.filter(x => x._id === active_id).length && filtered_categories.length){
-            set_active_id(filtered_categories[0]._id);
-        }
-
-        return filtered_categories.map((x,i) => 
-            <Tab id={`tab-${x._id}`} name={x.name} set_active_id={set_active_id} tab_key={x._id} key={x.name} />
-        );
-    }
-
-    let filter_pages = () => {
-        let filtered_categories = filter_search_results();
-        return filtered_categories.map((x,i) => 
-            <Page 
-                id={`content-${x._id}`} 
-                category={x.name} 
-                active={active_id} 
-                content_key={x._id} 
-                key={x.name}
-                tasks={tasks.filter(y => y.category_id === x._id && (search_name === '' || y.name.includes(search_name)))}
-                toggle_refresh={toggle_refresh}
-            />
-        );
-    }
-
     useEffect(() => {
+        let toggle_refresh = () => {
+            set_refresh(!refresh);
+        }
+
         let new_category_tasks = {};
 
         for (let x of categories) {
@@ -76,11 +37,11 @@ export default function List(){
             set_active_id(filtered_categories[0]._id);
         }
 
-        set_tabs(filtered_categories.map((x,i) => 
+        set_tabs(filtered_categories.map(x => 
             <Tab id={`tab-${x._id}`} name={x.name} set_active_id={set_active_id} tab_key={x._id} key={x.name} />
         ));
         
-        set_pages(filtered_categories.length ? filtered_categories.map((x,i) => 
+        set_pages(filtered_categories.length ? filtered_categories.map(x => 
             <Page 
                 id={`content-${x._id}`} 
                 category={x.name} 
@@ -90,16 +51,16 @@ export default function List(){
                 tasks={tasks.filter(y => y.category_id === x._id && (search_name === '' || y.name.includes(search_name)))}
                 toggle_refresh={toggle_refresh}
             />) :
-            <div>No Items Found</div>
+            <div className='no-items-found'>No Items Found</div>
         );
-    },[JSON.stringify(categories), JSON.stringify(tasks), search_name, active_id]);
+    },[JSON.stringify(categories), JSON.stringify(tasks), search_name, active_id, refresh]);
 
     return(
         <main>
             {tasks.length ? 
                 <div className="folder">
-                    <div className='search-bar'>
-                        <input type='text' placeholder='Search...' value={search_name} onChange={(e) => set_search_name(e.target.value)} />
+                    <div className='search-bar-container'>
+                        <input className='search-bar' type='text' placeholder='Search...' value={search_name} onChange={(e) => set_search_name(e.target.value)} />
                     </div>
 
                     <div className="tabs">
