@@ -207,7 +207,7 @@ app.delete('/api/delete/tasks/:user_id/:task_id', async (req, res) => {
 
     try {
         //attempt to create user in db
-        let doc = await Task.deleteOne(
+        let doc = await Task.findOneAndDelete(
             {
                 _id: parameters['task_id'], 
                 user_id: user_id
@@ -217,6 +217,16 @@ app.delete('/api/delete/tasks/:user_id/:task_id', async (req, res) => {
         if(!doc){
             res.status(404).json({message: 'Document not deleted'});
             return;
+        }
+
+        let docs = await Task.find({category_id: doc.category_id});
+        
+        if (!docs.length) {
+            await Category.deleteOne(
+                {
+                    _id: doc.category_id, 
+                    user_id: user_id
+                });
         }
 
         //send task

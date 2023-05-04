@@ -29,7 +29,7 @@ export default function List(){
 
         new_category_tasks = Object.fromEntries(Object.entries(new_category_tasks).filter(x => x[1].length > 0));
         
-        return categories.filter(x => Object.keys(new_category_tasks).includes(x._id))
+        return categories.filter(x => search_name === '' || Object.keys(new_category_tasks).includes(x._id))
                 .map((x,i) => <Tab id={`tab-${i}`} name={x.name} set_active_id={set_active_id} tab_key={i} key={x.name} />);
     }
 
