@@ -1,7 +1,9 @@
+import '../styling/css/home.css';
+
 export default function Home(){
     return(
-        <div className="home">
-            <main>
+        <main className='home'>
+            <div className='content'>
                 <h2>Your Next Planning Tool!</h2>
 
                 <p>
@@ -10,7 +12,7 @@ export default function Home(){
                     functionality for creating various types of tasks, various organizational 
                     methods, and allows for more detailed task information.
                 </p>
-            </main>
-        </div>
+            </div>
+        </main>
     );
 }

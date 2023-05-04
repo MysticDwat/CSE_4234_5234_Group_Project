@@ -26,7 +26,7 @@ root.render(
               <Route path='/update/:task_id' element={<Update />} />
               <Route path='/login' element={<SignIn />} />
               <Route path='/sign-out' element={<SignOut />} />
-              <Route path='*' element={<p style={{fontSize: '32px'}}>404 ERROR: Page not found.</p>} />
+              <Route path='*' element={<p style={{fontSize: '32px', color: 'black'}}>404 ERROR: Page not found.</p>} />
           </Route>
       </Routes>
   </BrowserRouter>
