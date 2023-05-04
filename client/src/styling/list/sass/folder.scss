@@ -6,12 +6,19 @@
     grid-template-rows: 2em 1fr;
     z-index: 0;
 
-    .search-bar {
+    .search-bar-container {
         grid-column-start: 1;
         grid-column-end: 3;
+        background: darkgrey;
+        display: grid;
+        place-items: center;
+        width: 10em;
+        margin-left: auto;
+        margin-right: 1em;
+        border-radius: 5px 5px 0 0;
     }
-    
-    .tabs:first-child {
+
+    .tabs{
         margin: 1em 0;
     }
 
@@ -52,4 +59,22 @@
     .tab-content.show{
         display: block;
     }
+}
+
+.no-tasks {
+    background: grey;
+    border-radius: 5px;
+    padding: 0.5em;
+    display: grid;
+    place-items: center;
+}
+
+.no-items-found {
+    color: black;
+    background: floralwhite;
+    padding: 0.5em;
+    height: calc(100% - 1em);
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
