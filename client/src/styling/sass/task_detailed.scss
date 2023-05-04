@@ -1,8 +1,10 @@
+@import '_variables';
+
 .task-detailed {
     width: 25vw;
 
     .tab {
-        background: darkgray;
+        background: $color4;
         width: max-content;
         border-radius: 5px 5px 0 0;
         padding: 5px;
@@ -10,7 +12,7 @@
     }
 
     .content {
-        background: gray;
+        background: $color3;
         border-radius: 5px 5px 5px 5px;
         padding: 0.8em 1em;
 

@@ -10,7 +10,7 @@
 .folder .search-bar-container {
   grid-column-start: 1;
   grid-column-end: 3;
-  background: darkgrey;
+  background: darkgray;
   display: grid;
   place-items: center;
   width: 10em;
@@ -24,7 +24,7 @@
 .folder .tab-option {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  background: darkgrey;
+  background: darkgray;
   border-radius: 0 5px 5px 0;
   height: 6em;
   width: 2em;
@@ -36,10 +36,10 @@
   cursor: pointer;
 }
 .folder .tab-option.highlight {
-  background: grey;
+  background: gray;
 }
 .folder .content {
-  background: grey;
+  background: gray;
   border-radius: 5px;
   padding: 0.5em;
   position: relative;
@@ -69,7 +69,7 @@
 }
 
 .no-tasks {
-  background: grey;
+  background: gray;
   border-radius: 5px;
   padding: 0.5em;
   display: grid;

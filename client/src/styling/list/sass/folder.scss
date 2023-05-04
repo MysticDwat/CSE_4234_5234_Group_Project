@@ -1,3 +1,5 @@
+@import '../../sass/variables';
+
 .folder {
     width: clamp(10em, 50vw, 50em);
     height: max-content;
@@ -9,7 +11,7 @@
     .search-bar-container {
         grid-column-start: 1;
         grid-column-end: 3;
-        background: darkgrey;
+        background: $color4;
         display: grid;
         place-items: center;
         width: 10em;
@@ -25,7 +27,7 @@
     .tab-option {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
-        background: darkgrey;
+        background: $color4;
         border-radius: 0 5px 5px 0;
         height: 6em;
         width: 2em;
@@ -38,19 +40,19 @@
     }
     
     .tab-option.highlight {
-        background: grey;
+        background: $color3;
     }
     
     .content {
-        background: grey;
+        background: $color3;
         border-radius: 5px;
         padding: 0.5em;
         position: relative;
     }
     
     .tab-content {
-        color: black;
-        background: floralwhite;
+        color: $text-color-dark;
+        background: $color2;
         padding: 0.5em;
         height: calc(100% - 1em);
         display: none;
@@ -76,7 +78,7 @@
 }
 
 .no-tasks {
-    background: grey;
+    background: $color3;
     border-radius: 5px;
     padding: 0.5em;
     display: grid;
@@ -84,8 +86,8 @@
 }
 
 .no-items-found {
-    color: black;
-    background: floralwhite;
+    color: $text-color-dark;
+    background: $color2;
     padding: 0.5em;
     height: calc(100% - 1em);
     text-align: center;

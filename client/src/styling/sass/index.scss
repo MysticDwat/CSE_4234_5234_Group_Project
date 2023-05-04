@@ -1,12 +1,8 @@
-$color1: black;
-$color2: floralwhite;
-$color3: #c33c54;
-$color4: #e76f51;
-$color5: #7698b3;
+@import '_variables';
 
 :root {
     background: $color1;
-    color: $color2;
+    color: $text-color-light
 }
 
 body {

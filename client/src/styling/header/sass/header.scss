@@ -1,3 +1,5 @@
+@import '../../sass/_variables';
+
 header {
   display: grid;
   place-items: center;
@@ -15,7 +17,7 @@ header {
     margin: 0;
     padding: 22px;
     text-align: center;
-    background: gray;
+    background: $color3;
     z-index: 2;
   }
 
