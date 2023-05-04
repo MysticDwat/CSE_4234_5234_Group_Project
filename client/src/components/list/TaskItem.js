@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faPen, faTrashCan, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../scripts/firebase.js';
 
 export default function TaskItem (props) {
@@ -25,10 +27,11 @@ export default function TaskItem (props) {
     
     return(
         <li>
-            <div className="task_name">{props.name}</div>
-            <button className="task_view_button"onClick={handle_view} >View</button>
-            {user ? <button className="task_update_button" onClick={handle_update} >Update</button> : null}
-            {user ? <button className="task_delete_button"onClick={handle_delete} >Delete</button> : null}
+            <FontAwesomeIcon icon={faChevronRight} />
+            <div className="task-name">{props.name}</div>
+            <button className="task-view-button"onClick={handle_view} ><FontAwesomeIcon icon={faEye} /> View</button>
+            {user ? <button className="task-update-button" onClick={handle_update} ><FontAwesomeIcon icon={faPen} /> Update</button> : null}
+            {user ? <button className="task-delete-button"onClick={handle_delete} ><FontAwesomeIcon icon={faTrashCan} /> Delete</button> : null}
         </li>
     );
 }

@@ -76,7 +76,7 @@ export default function Update() {
         set_due_date(date);
         set_status(tasks.status);
         set_description(tasks.description);
-    }, [tasks, user, navigate]);
+    }, [JSON.stringify(tasks), user, navigate]);
 
     return(
         <main>

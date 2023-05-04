@@ -54,6 +54,20 @@
         padding: 0.5em;
         height: calc(100% - 1em);
         display: none;
+
+        .content-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.2em;
+            padding: 0;
+            
+            li {
+                display: flex;
+                align-items: center;
+                column-gap: 0.25em;
+            }
+        }
     }
     
     .tab-content.show{

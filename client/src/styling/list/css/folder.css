@@ -51,6 +51,19 @@
   height: calc(100% - 1em);
   display: none;
 }
+.folder .tab-content .content-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2em;
+  padding: 0;
+}
+.folder .tab-content .content-list li {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 0.25em;
+       column-gap: 0.25em;
+}
 .folder .tab-content.show {
   display: block;
 }

@@ -19,7 +19,7 @@ export default function Detail(){
 
     return(
         <main>
-            <TaskDetailed name={tasks.name} description={tasks.description} category={tasks.category} deadline={format_date()} status={tasks.status}/>
+            <TaskDetailed name={tasks.name} description={tasks.description} category={tasks.category} deadline={format_date()} status={tasks.status ? tasks.status.charAt(0).toUpperCase() + tasks.status.slice(1) : tasks.status}/>
         </main>
     );
 }
