@@ -71,7 +71,7 @@ export default function List(){
         new_category_tasks = Object.fromEntries(Object.entries(new_category_tasks).filter(x => x[1].length > 0));
         
         let filtered_categories = categories.filter(x => search_name === '' || Object.keys(new_category_tasks).includes(x._id));
-
+        
         if (!filtered_categories.filter(x => x._id === active_id).length && filtered_categories.length){
             set_active_id(filtered_categories[0]._id);
         }
@@ -92,7 +92,7 @@ export default function List(){
             />) :
             <div>No Items Found</div>
         );
-    },[JSON.stringify(categories), JSON.stringify(tasks), search_name]);
+    },[JSON.stringify(categories), JSON.stringify(tasks), search_name, active_id]);
 
     return(
         <main>
