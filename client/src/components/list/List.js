@@ -20,7 +20,7 @@ export default function List(){
         set_refresh(!refresh);
     }
 
-    let filter_tabs = () => {
+    let filter_search_results = () => {
         let new_category_tasks = {};
 
         for (let x of categories) {
@@ -30,7 +30,33 @@ export default function List(){
         new_category_tasks = Object.fromEntries(Object.entries(new_category_tasks).filter(x => x[1].length > 0));
         
         return categories.filter(x => search_name === '' || Object.keys(new_category_tasks).includes(x._id))
-                .map((x,i) => <Tab id={`tab-${i}`} name={x.name} set_active_id={set_active_id} tab_key={i} key={x.name} />);
+    }
+
+    let filter_tabs = () => {
+        let filtered_categories = filter_search_results();
+
+        if (!filtered_categories.filter(x => x._id === active_id).length){
+            set_active_id(filtered_categories[0]._id);
+        }
+
+        return filtered_categories.map((x,i) => 
+            <Tab id={`tab-${x._id}`} name={x.name} set_active_id={set_active_id} tab_key={x._id} key={x.name} />
+        );
+    }
+
+    let filter_pages = () => {
+        let filtered_categories = filter_search_results();
+        return filtered_categories.map((x,i) => 
+            <Page 
+                id={`content-${x._id}`} 
+                category={x.name} 
+                active={active_id} 
+                content_key={x._id} 
+                key={x.name}
+                tasks={tasks.filter(y => y.category_id === x._id && (search_name === '' || y.name.includes(search_name)))}
+                toggle_refresh={toggle_refresh}
+            />
+        );
     }
 
     return(
@@ -46,19 +72,7 @@ export default function List(){
                     </div>
 
                     <div className="content">
-                        {
-                            categories.map((x,i) => 
-                                <Page 
-                                    id={`content-${i}`} 
-                                    category={x.name} 
-                                    active={active_id} 
-                                    content_key={i} 
-                                    key={x.name}
-                                    tasks={tasks.filter(y => y.category_id === x._id && (search_name === '' || y.name.includes(search_name)))}
-                                    toggle_refresh={toggle_refresh}
-                                />
-                            )
-                        }
+                        {filter_pages()}
                     </div>
                 </div> 
                 :
