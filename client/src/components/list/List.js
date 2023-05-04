@@ -9,6 +9,7 @@ import Page from './Page';
 
 export default function List(){
     const [active_id, set_active_id] = useState(0);
+    const [is_active, set_is_active] = useState(false);
     const [refresh, set_refresh] = useState(false);
     const [search_name, set_search_name] = useState('');
     const [tabs, set_tabs] = useState([]);
@@ -38,7 +39,7 @@ export default function List(){
         }
 
         set_tabs(filtered_categories.map(x => 
-            <Tab id={`tab-${x._id}`} name={x.name} set_active_id={set_active_id} tab_key={x._id} key={x.name} />
+            <Tab id={`tab-${x._id}`} name={x.name} set_active_id={set_active_id} tab_key={x._id} key={x.name} is_active={is_active} set_is_active={set_is_active} />
         ));
         
         set_pages(filtered_categories.length ? filtered_categories.map(x => 
@@ -53,7 +54,7 @@ export default function List(){
             />) :
             <div className='no-items-found'>No Items Found</div>
         );
-    },[JSON.stringify(categories), JSON.stringify(tasks), search_name, active_id, refresh]);
+    },[JSON.stringify(categories), JSON.stringify(tasks), search_name, active_id, refresh, is_active]);
 
     return(
         <main>

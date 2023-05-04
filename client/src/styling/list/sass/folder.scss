@@ -32,6 +32,7 @@
     .tab-option {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
+        transition: scale, opacity, filter 0.5s ease-in-out;
         background: $folder-color-light;
         border-radius: 0 5px 5px 0;
         height: 6em;
@@ -45,7 +46,14 @@
     }
     
     .tab-option.highlight {
-        background: $folder-color-dark;
+        transform: scale(1.00) rotate(180deg);
+        font-weight: bold;
+    }
+    
+    .tab-option.fade {
+        opacity: 95%;
+        transform: translatex(5%) rotate(180deg);
+        filter: blur(0.5px);
     }
     
     .content {
